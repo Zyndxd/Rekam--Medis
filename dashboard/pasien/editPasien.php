@@ -1,5 +1,5 @@
 <?php
-include('../Vesperr/koneksi/koneksi.php');
+include('../../Vesperr/koneksi/koneksi.php');
 
 $no_pasien = $_GET['id'];
 $query = mysqli_query($connection, "SELECT * FROM pasien WHERE no_pasien='$no_pasien'");
@@ -34,7 +34,7 @@ if (isset($_POST['update'])) {
         WHERE no_pasien='$no_pasien'");
 
     if ($update) {
-        header("Location: index.php?status=sukses_edit");
+        header("Location: ../template/index.php?status=sukses_edit");
         exit();
     } else {
         echo "Gagal update data.";
@@ -43,8 +43,8 @@ if (isset($_POST['update'])) {
 ?>
 
 <?php
-include('header.php');
-include('sidebar.php');
+include('../template/header.php');
+include('../template/sidebar.php');
 ?>
 
 <div class="content-wrapper">
@@ -91,10 +91,10 @@ include('sidebar.php');
                         <input type="text" name="hub_kel" class="form-control" value="<?= $data['hub_kel']; ?>" required>
                       </div>
                       <button type="submit" name="update" class="btn btn-primary me-2">Submit</button>
-                      <a href="index.php" class="btn btn-light">Cancel</a>
+                      <a href="../template/index.php" class="btn btn-light">Cancel</a>
                     </form>
                   </div>
                 </div>
               </div>
           </div>
-<?php include('footer.php'); ?>
+<?php include('../template/footer.php'); ?>

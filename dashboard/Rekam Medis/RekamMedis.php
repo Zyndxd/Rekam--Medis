@@ -1,5 +1,5 @@
 <?php
-include '../Vesperr/koneksi/koneksi.php';
+include '../../Vesperr/koneksi/koneksi.php';
 
 $tindakan = mysqli_query($connection, "SELECT kd_tindakan, nm_tindakan FROM tindakan");
 $obat = mysqli_query($connection, "SELECT kd_obat, nm_obat FROM obat");
@@ -7,8 +7,8 @@ $user = mysqli_query($connection, "SELECT kd_user, username FROM login");
 $pasien = mysqli_query($connection, "SELECT no_pasien, nm_pasien FROM pasien");
 ?>
 
-<?php include('header.php'); ?>
-<?php include('sidebar.php'); ?>
+<?php include('../template/header.php'); ?>
+<?php include('../template/sidebar.php'); ?>
 <div class="content-wrapper">
             <div class="row">
               <div class="col-12 grid-margin stretch-card">
@@ -80,4 +80,4 @@ $pasien = mysqli_query($connection, "SELECT no_pasien, nm_pasien FROM pasien");
                 </div>
               </div>
           </div>
-<?php include('footer.php'); ?>
+<?php include('../template/footer.php'); ?>

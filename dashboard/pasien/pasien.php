@@ -30,7 +30,7 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        include '../Vesperr/koneksi/koneksi.php';
+                                        include '../../Vesperr/koneksi/koneksi.php';
 
                                         if (!$connection) {
                                         die("Koneksi gagal: " . mysqli_connect_error());
@@ -54,8 +54,8 @@
                                             <td><h6><?= $data['nm_kk']; ?></h6></td>
                                             <td><h6><?= $data['hub_kel']; ?></h6></td>
                                             <td class="text-start">
-                                                <a href="editPasien.php?id=<?= $data['no_pasien']; ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                <a href="hapusPasien.php?id=<?= $data['no_pasien']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                                                <a href="../pasien/editPasien.php?id=<?= $data['no_pasien']; ?>" class="btn btn-sm btn-warning">Edit</a>
+                                                <a href="../pasien/hapusPasien.php?id=<?= $data['no_pasien']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
                                                 </td>
 
                                         </tr>

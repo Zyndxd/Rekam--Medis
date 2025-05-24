@@ -1,5 +1,5 @@
-<?php include('header.php'); ?>
-<?php include('sidebar.php'); ?>
+<?php include('../template/header.php'); ?>
+<?php include('../template/sidebar.php'); ?>
 <div class="content-wrapper">
             <div class="row">
               <div class="col-12 grid-margin stretch-card">
@@ -50,4 +50,4 @@
                 </div>
               </div>
           </div>
-<?php include('footer.php'); ?>
+<?php include('../template/footer.php'); ?>

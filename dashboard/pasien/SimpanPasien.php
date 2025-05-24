@@ -1,5 +1,5 @@
 <?php
-    include('../Vesperr/koneksi/koneksi.php');
+    include('../../Vesperr/koneksi/koneksi.php');
     $nama = $_POST['nm_pasien'];
     $jk = $_POST['j_kel'];
     $agama = $_POST['agama'];
@@ -15,7 +15,7 @@
                 VALUES ('$nama', '$jk', '$agama', '$alamat', '$tgl_lhr', '$usia', '$no_telp', '$nm_kk', '$hub_kel')";
         $hasil = mysqli_query ($connection,$sql);
         if ($hasil) {
-            header("Location: index.php");
+            header("Location: ../template/index.php");
         } else {
             echo "Data Gagal Disimpan";
         }

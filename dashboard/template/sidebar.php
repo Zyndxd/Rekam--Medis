@@ -10,8 +10,8 @@
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="index.php">Data Pasien</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="inputPasien.php">Input Pasien</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../template/index.php">Data Pasien</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../pasien/inputPasien.php">Input Pasien</a></li>
                 </ul>
               </div>
             </li>
@@ -24,7 +24,7 @@
               </a>
               <div class="collapse" id="form-elements">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="user.php">Data User</a></li>
+                  <li class="nav-item"><a class="nav-link" href="../user/user.php">Data User</a></li>
                 </ul>
               </div>
             </li>
@@ -37,8 +37,21 @@
               </a>
               <div class="collapse" id="charts">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="DRekamMedis.php">Data Rekam Medis</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="RekamMedis.php">Input Rekam Medis</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../Rekam Medis/DRekamMedis.php">Data Rekam Medis</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../Rekam Medis/RekamMedis.php">Input Rekam Medis</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#kunjungan" aria-expanded="false" aria-controls="kunjungan">
+                <i class="menu-icon mdi mdi-login-variant"></i>
+                <span class="menu-title">Kunjungan</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="kunjungan">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="../kunjungan/kunjungan.php">Data Kunjungan</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../kunjungan/inputkunjungan.php">Input Kunjungan</a></li>
                 </ul>
               </div>
             </li>

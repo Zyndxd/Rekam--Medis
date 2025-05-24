@@ -1,5 +1,5 @@
-<?php include('header.php'); ?>
-<?php include('sidebar.php'); ?>
+<?php include('../template/header.php'); ?>
+<?php include('../template/sidebar.php'); ?>
 
 <div class="content-wrapper">
             <div class="row">
@@ -32,7 +32,7 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        include '../Vesperr/koneksi/koneksi.php';
+                                        include '../../Vesperr/koneksi/koneksi.php';
 
                                         if (!$connection) {
                                         die("Koneksi gagal: " . mysqli_connect_error());
@@ -46,9 +46,9 @@
                                         <tr class="text-center">
                                             <td><h6><?= $no++; ?></h6></td>
                                             <td><h6><?= $data['kd_tindakan']; ?></h6></td>
-                                            <td><h6><?= $data['kd_obat ']; ?></h6></td>
-                                            <td><h6><?= $data['kd_user ']; ?></h6></td>
-                                            <td><h6><?= $data['no_pasien ']; ?></h6></td>
+                                            <td><h6><?= $data['kd_obat']; ?></h6></td>
+                                            <td><h6><?= $data['kd_user']; ?></h6></td>
+                                            <td><h6><?= $data['no_pasien']; ?></h6></td>
                                             <td><h6><?= $data['diagnosa']; ?></h6></td>
                                             <td><h6><?= $data['resep']; ?></h6></td>
                                             <td><h6><?= $data['keluhan']; ?></h6></td>
@@ -57,7 +57,8 @@
                                             <td class="text-start">
                                                 <a href="editPasien.php?id=<?= $data['no_rm']; ?>" class="btn btn-sm btn-warning">Edit</a>
                                                 <a href="hapusPasien.php?id=<?= $data['no_rm']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
-                                                </td>
+                                                <a href="cetakRekamMedis.php?id=<?= $data['no_rm']; ?>" class="btn btn-sm btn-info" target="_blank">Cetak</a>                                                
+                                            </td>
 
                                         </tr>
                                         <?php } ?>
@@ -80,4 +81,4 @@
           <!-- content-wrapper ends -->
 
 
-<?php include('footer.php'); ?>
+<?php include('../template/footer.php'); ?>

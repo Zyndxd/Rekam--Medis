@@ -26,7 +26,7 @@ if (!empty($username) && !empty($Password)) {
             $_SESSION["username"] = $username;
             $_SESSION["admin_akses"] = $akses;
     
-            header("Location: ../index.php");
+            header("Location: ../template/index.php");
             exit();
         } else {
             echo "Password salah.";

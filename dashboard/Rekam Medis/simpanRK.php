@@ -1,5 +1,5 @@
 <?php
-include '../Vesperr/koneksi/koneksi.php';
+include '../../Vesperr/koneksi/koneksi.php';
 
 $kd_tindakan = $_POST['no_tindakan'];  
 $kd_obat = $_POST['kd_obat'];
