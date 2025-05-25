@@ -1,6 +1,5 @@
 <?php  
 session_start();
-include('../../Vesperr/koneksi/koneksi.php');
 if (!in_array("pasien", $_SESSION['admin_akses'])) {
   echo "
   <head>
@@ -78,68 +77,62 @@ if (!in_array("pasien", $_SESSION['admin_akses'])) {
 }
 
 ?>
-<?php include('../template/header.php');  ?>
-<?php include('../template/sidebar.php');  ?>
+
+<?php
+include('../../Vesperr/koneksi/koneksi.php');
+
+$kd_user = $_GET['id'];
+$query = mysqli_query($connection, "SELECT * FROM login WHERE kd_user='$kd_user'");
+$data = mysqli_fetch_assoc($query);
+
+if (!$data) {
+    echo "Data tidak ditemukan.";
+    exit();
+}
+
+if (isset($_POST['update'])) {
+    $username       = $_POST['username'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+    $update = mysqli_query($connection, "UPDATE login SET 
+        username='$username',
+        password='$password'
+        WHERE kd_user='$kd_user'");
+
+    if ($update) {
+        header("Location: user.php?status=sukses_edit");
+        exit();
+    } else {
+        echo "Gagal update data.";
+    }
+}
+?>
+
+<?php
+include('../template/header.php');
+include('../template/sidebar.php');
+?>
+
 <div class="content-wrapper">
             <div class="row">
-              <div class="col-sm-12">
-                <div class="home-tab">
-                  <div class="tab-content tab-content-basic">
-                    <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
-                      <div class="row">
-                        <div class="col-lg-12 d-flex flex-column">
-                          <div class="row flex-grow">
-                            <div class="col-12 grid-margin stretch-card">
-                              <div class="card card-rounded">
-                                <div class="card-body">
-                                <div class="table-responsive w-100">
-                                    <table class="table select-table w-100">
-                                      <thead>
-                                      <tr>
-                                        <th class="text-center">username</th>
-                                        <th class="text-center">Password</th>
-                                        <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        include '../../Vesperr/koneksi/koneksi.php';
-
-                                        if (!$connection) {
-                                        die("Koneksi gagal: " . mysqli_connect_error());
-                                        }
-
-                                        $no = 1;
-                                        $query = mysqli_query($connection, "SELECT * FROM login");
-
-                                        while ($data = mysqli_fetch_array($query)) {
-                                        ?>
-                                        <tr class="text-center">
-                                            <td><h6><?= $data['username']; ?></h6></td>
-                                            <td><h6><?= $data['password']; ?></h6></td>
-                                            <td class="text-start">
-                                                <a href="editUser.php?id=<?= $data['kd_user']; ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                <a href="hapusPasien.php?id=<?= $data['kd_user']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
-                                                </td>
-
-                                        </tr>
-                                        <?php } ?>
-                                      </tbody>
-                                    </table>
-                                  </div>
-                                 </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </div>
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Input Data Pasien</h4>
+                    <p class="card-description"> Silahkan Input Data Pasien </p>
+                    <form action="" method="POST" class="forms-sample">
+                      <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" class="form-control" value="<?= $data['username']; ?>" required>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="text" name="password" class="form-control" value="<?= $data['password']; ?>" required>
                       </div>
-                    </div>
+                      <button type="submit" name="update" class="btn btn-primary me-2">Submit</button>
+                      <a href="user.php" class="btn btn-light">Cancel</a>
+                    </form>
                   </div>
                 </div>
               </div>
-            </div>
           </div>
-          <!-- content-wrapper ends -->
-<?php include('../template/footer.php');  ?>
+<?php include('../template/footer.php'); ?>

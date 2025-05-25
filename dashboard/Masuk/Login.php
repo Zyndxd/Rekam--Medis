@@ -2,7 +2,7 @@
 session_start();
 
 if(isset($_SESSION["Login"])){
-    header("Location: ../index.php");
+    header("Location: ../template/index.php");
 }
 ?>
 
@@ -32,7 +32,6 @@ if(isset($_SESSION["Login"])){
                 <input type="text" name="username" placeholder="username" require>
                 <input type="password" name="password" placeholder="Password" require>
                 <button type="submit" name="login">LOGIN</button>
-                <p>don't have an account? <a href="register.php"">Register</a></p>
             </form>
         </div>
     </div>

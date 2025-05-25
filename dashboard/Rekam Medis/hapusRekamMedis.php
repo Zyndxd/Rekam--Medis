@@ -6,12 +6,12 @@ if (!isset($_GET['id'])) {
     exit();
 }
 
-$tgl_kunjungan = $_GET['id'];
+$no_rm = $_GET['id'];
 
-$hapus = mysqli_query($connection, "DELETE FROM kunjungan WHERE tgl_kunjungan = '$tgl_kunjungan'");
+$hapus = mysqli_query($connection, "DELETE FROM rekam_medis WHERE no_rm = '$no_rm'");
 
 if ($hapus) {
-    header("Location: kunjungan.php?status=hapus_sukses");
+    header("Location: DRekamMedis.php?status=hapus_sukses");
     exit();
 } else {
     echo "Data gagal dihapus.";

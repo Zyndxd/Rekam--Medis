@@ -1,6 +1,5 @@
-<?php include('../template/header.php'); ?>
-<?php include('../template/sidebar.php'); ?>
-
+<?php include('../template/header.php');  ?>
+<?php include('../template/sidebar.php');  ?>
 <div class="content-wrapper">
             <div class="row">
               <div class="col-sm-12">
@@ -13,15 +12,14 @@
                             <div class="col-12 grid-margin stretch-card">
                               <div class="card card-rounded">
                                 <div class="card-body">
-                                    <div class="table-responsive w-100">
+                                <div class="table-responsive w-100">
                                     <table class="table select-table w-100">
                                       <thead>
                                       <tr>
-                                        <th class="text-center">No</th>
-                                        <th class="text-center">Tanggal Kunjungan</th>
-                                        <th class="text-center">No Pasien</th>
-                                        <th class="text-center">Kode Poli</th>
-                                        <th class="text-center">Jam Kunjungan</th>
+                                        <th class="text-center">kd_lab</th>
+                                        <th class="text-center">no_rm</th>
+                                        <th class="text-center">hasil_lab</th>
+                                        <th class="text-center">ket</th>
                                         <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -34,31 +32,25 @@
                                         }
 
                                         $no = 1;
-                                        $query = mysqli_query($connection, "
-                                            SELECT kunjungan.*, pasien.nm_pasien 
-                                            FROM kunjungan 
-                                            LEFT JOIN pasien ON kunjungan.no_pasien = pasien.no_pasien
-                                        ");
-
+                                        $query = mysqli_query($connection, "SELECT * FROM laboratorium");
 
                                         while ($data = mysqli_fetch_array($query)) {
                                         ?>
                                         <tr class="text-center">
-                                            <td><h6><?= $no++; ?></h6></td>
-                                            <td><h6><?= $data['tgl_kunjungan']; ?></h6></td>
-                                            <td><h6><?= $data['nm_pasien']; ?></h6></td>
-                                            <td><h6><?= $data['kd_poli']; ?></h6></td>
-                                            <td><h6><?= $data['jam_kunjungan']; ?></h6></td>
+                                            <td><h6><?= $data['kd_lab']; ?></h6></td>
+                                            <td><h6><?= $data['no_rm']; ?></h6></td>
+                                            <td><h6><?= $data['hasil_lab']; ?></h6></td>
+                                            <td><h6><?= $data['ket']; ?></h6></td>
                                             <td class="text-start">
-                                                <a href="editKunjungan.php?id=<?= $data['tgl_kunjungan']; ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                <a href="hapusKunjungan.php?id=<?= $data['tgl_kunjungan']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
-                                                <a href="cetakRekamMedis.php?id=<?= $data['tgl_kunjungan']; ?>" class="btn btn-sm btn-info" target="_blank">Cetak</a>                                                
-                                            </td>
+                                                <a href="editUser.php?id=<?= $data['kd_lab']; ?>" class="btn btn-sm btn-warning">Edit</a>
+                                                <a href="hapusPasien.php?id=<?= $data['kd_lab']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                                                </td>
                                         </tr>
                                         <?php } ?>
                                       </tbody>
                                     </table>
                                   </div>
+                                 </div>
                                 </div>
                               </div>
                             </div>
@@ -73,6 +65,4 @@
             </div>
           </div>
           <!-- content-wrapper ends -->
-
-
-<?php include('../template/footer.php'); ?>
+<?php include('../template/footer.php');  ?>

@@ -56,7 +56,7 @@
                                             <td><h6><?= $data['ket']; ?></h6></td>
                                             <td class="text-start">
                                                 <a href="editPasien.php?id=<?= $data['no_rm']; ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                <a href="hapusPasien.php?id=<?= $data['no_rm']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                                                <a href="hapusRekamMedis.php?id=<?= $data['no_rm']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
                                                 <a href="cetakRekamMedis.php?id=<?= $data['no_rm']; ?>" class="btn btn-sm btn-info" target="_blank">Cetak</a>                                                
                                             </td>
 
