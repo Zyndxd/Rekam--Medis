@@ -16,9 +16,8 @@
                                     <table class="table select-table w-100">
                                       <thead>
                                       <tr>
-                                        <th class="text-center">Kd Lab</th>
-                                        <th class="text-center">No Rekam Medis</th>
-                                        <th class="text-center">Hasil Lab</th>
+                                        <th class="text-center">Kd Tindakan</th>
+                                        <th class="text-center">Nama Tindakan</th>
                                         <th class="text-center">ket</th>
                                         <th>Aksi</th>
                                         </tr>
@@ -32,18 +31,17 @@
                                         }
 
                                         $no = 1;
-                                        $query = mysqli_query($connection, "SELECT * FROM laboratorium");
+                                        $query = mysqli_query($connection, "SELECT * FROM tindakan");
 
                                         while ($data = mysqli_fetch_array($query)) {
                                         ?>
                                         <tr class="text-center">
-                                            <td><h6><?= $data['kd_lab']; ?></h6></td>
-                                            <td><h6><?= $data['no_rm']; ?></h6></td>
-                                            <td><h6><?= $data['hasil_lab']; ?></h6></td>
+                                            <td><h6><?= $data['kd_tindakan']; ?></h6></td>
+                                            <td><h6><?= $data['nm_tindakan']; ?></h6></td>
                                             <td><h6><?= $data['ket']; ?></h6></td>
                                             <td class="text-start">
-                                                <a href="EditLab.php?id=<?= $data['kd_lab']; ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                <a href="HapusLab.php?id=<?= $data['kd_lab']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                                                <a href="EditTindakan.php?id=<?= $data['kd_tindakan']; ?>" class="btn btn-sm btn-warning">Edit</a>
+                                                <a href="HapusTindakan.php?id=<?= $data['kd_tindakan']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
                                                 </td>
                                         </tr>
                                         <?php } ?>

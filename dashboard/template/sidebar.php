@@ -32,7 +32,7 @@
 <?php } ?>
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="menu-icon mdi mdi-medication"></i>
+                <i class="menu-icon mdi mdi-medication-outline"></i>
                 <span class="menu-title">Rekam Medis</span>
                 <i class="menu-arrow"></i>
               </a>
@@ -65,7 +65,61 @@
               <div class="collapse" id="Laboratorium">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="../laboratorium/laboratorium.php">Data Laboratorium</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../kunjungan/inputkunjungan.php">Input Laboratorium</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../laboratorium/InputLab.php">Input Laboratorium</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#Dokter" aria-expanded="false" aria-controls="Dokter">
+                <i class="menu-icon mdi mdi-doctor"></i>
+                <span class="menu-title">Dokter</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="Dokter">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="../Dokter/Dokter.php">Data Dokter</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../Dokter/InputDokter.php">Input Dokter</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#Tindakan" aria-expanded="false" aria-controls="Tindakan">
+                <i class="menu-icon mdi mdi-needle"></i>
+                <span class="menu-title">Tindakan</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="Tindakan">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="../tindakan/tindakan.php">Data Tindakan</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../tindakan/InputTindakan.php">Input Tindakan</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#Obat" aria-expanded="false" aria-controls="Obat">
+                <i class="menu-icon mdi mdi-pill"></i>
+                <span class="menu-title">Obat</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="Obat">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="../Obat/Obat.php">Data Obat</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../Obat/InputObat.php">Input Obat</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#Poliklinik" aria-expanded="false" aria-controls="Poliklinik">
+                <i class="menu-icon mdi mdi-room-service-outline"></i>
+                <span class="menu-title">Poliklinik</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="Poliklinik">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="../poliklinik/poliklinik.php">Data Poli</a></li>
+<?php if (in_array("pasien", $_SESSION['admin_akses'])) { ?>   
+                  <li class="nav-item"> <a class="nav-link" href="../poliklinik/InputPoli.php">Input Poli</a></li>
+<?php } ?>
                 </ul>
               </div>
             </li>

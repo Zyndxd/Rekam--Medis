@@ -16,11 +16,12 @@
                                     <table class="table select-table w-100">
                                       <thead>
                                       <tr>
-                                        <th class="text-center">Kd Lab</th>
-                                        <th class="text-center">No Rekam Medis</th>
-                                        <th class="text-center">Hasil Lab</th>
-                                        <th class="text-center">ket</th>
+                                        <th class="text-center">Kd Poli</th>
+                                        <th class="text-center">Nama Poli</th>
+                                        <th class="text-center">Lantai</th>
+                                    <?php if (in_array("pasien", $_SESSION['admin_akses'])) { ?>   
                                         <th>Aksi</th>
+                                    <?php } ?>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -32,19 +33,20 @@
                                         }
 
                                         $no = 1;
-                                        $query = mysqli_query($connection, "SELECT * FROM laboratorium");
+                                        $query = mysqli_query($connection, "SELECT * FROM poliklinik");
 
                                         while ($data = mysqli_fetch_array($query)) {
                                         ?>
                                         <tr class="text-center">
-                                            <td><h6><?= $data['kd_lab']; ?></h6></td>
-                                            <td><h6><?= $data['no_rm']; ?></h6></td>
-                                            <td><h6><?= $data['hasil_lab']; ?></h6></td>
-                                            <td><h6><?= $data['ket']; ?></h6></td>
+                                            <td><h6><?= $data['kd_poli']; ?></h6></td>
+                                            <td><h6><?= $data['nm_poli']; ?></h6></td>
+                                            <td><h6><?= $data['lantai']; ?></h6></td>
+                                        <?php if (in_array("pasien", $_SESSION['admin_akses'])) { ?>   
                                             <td class="text-start">
-                                                <a href="EditLab.php?id=<?= $data['kd_lab']; ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                <a href="HapusLab.php?id=<?= $data['kd_lab']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                                                <a href="EditPoli.php?id=<?= $data['kd_poli']; ?>" class="btn btn-sm btn-warning">Edit</a>
+                                                <a href="HapusPoli.php?id=<?= $data['kd_poli']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
                                                 </td>
+                                        <?php } ?>
                                         </tr>
                                         <?php } ?>
                                       </tbody>

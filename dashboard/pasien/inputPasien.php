@@ -44,7 +44,7 @@
                         <input type="text" name="hub_kel" class="form-control" placeholder="Hubungan Keluarga" required>
                       </div>
                       <button type="submit" class="btn btn-primary me-2">Submit</button>
-                      <button typer="reset" class="btn btn-light">Cancel</button>
+                      <button type="reset" class="btn btn-light">Cancel</button>
                     </form>
                   </div>
                 </div>

@@ -36,6 +36,11 @@ $pasien = mysqli_query($connection, "SELECT no_pasien, nm_pasien FROM pasien");
                         </select>
                       </div>
                       <div class="form-group">
+                        <label for="jumlah_pakai">Jumlah Obat Dipakai</label>
+                        <input type="number" name="jumlah_pakai" class="form-control" placeholder="Jumlah Obat" required min="1">
+                      </div>
+
+                      <div class="form-group">
                       <label for="kd_user">Pilih User</label>
                         <select class="form-select" name="kd_user" required>
                             <option value="">--Pilih User--</option>
@@ -74,7 +79,7 @@ $pasien = mysqli_query($connection, "SELECT no_pasien, nm_pasien FROM pasien");
                         <input type="text" name="ket" class="form-control" placeholder="Keterangan" required>
                       </div>
                       <button type="submit" class="btn btn-primary me-2">Submit</button>
-                      <button typer="reset" class="btn btn-light">Cancel</button>
+                      <button type="reset" class="btn btn-light">Cancel</button>
                     </form>
                   </div>
                 </div>

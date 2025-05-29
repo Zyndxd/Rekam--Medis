@@ -20,6 +20,7 @@
                                         <th class="text-center">No</th>
                                         <th class="text-center">Kode Tindakan</th>
                                         <th class="text-center">Kode Obat</th>
+                                        <th class="text-center">Jumlah Pakai</th>
                                         <th class="text-center">Kode User</th>
                                         <th class="text-center">No Pasien</th>
                                         <th class="text-center">Diagnosa</th>
@@ -39,23 +40,32 @@
                                         }
 
                                         $no = 1;
-                                        $query = mysqli_query($connection, "SELECT * FROM rekam_medis");
+                                        $query = mysqli_query($connection, "
+                                            SELECT rekam_medis.*, 
+                                                  pasien.nm_pasien, 
+                                                  obat.nm_obat 
+                                            FROM rekam_medis 
+                                            LEFT JOIN pasien ON rekam_medis.no_pasien = pasien.no_pasien
+                                            LEFT JOIN obat ON rekam_medis.kd_obat = obat.kd_obat
+                                        ");
+
 
                                         while ($data = mysqli_fetch_array($query)) {
                                         ?>
                                         <tr class="text-center">
                                             <td><h6><?= $no++; ?></h6></td>
                                             <td><h6><?= $data['kd_tindakan']; ?></h6></td>
-                                            <td><h6><?= $data['kd_obat']; ?></h6></td>
+                                            <td><h6><?= $data['nm_obat']; ?></h6></td>
+                                            <td><h6><?= $data['jumlah_pakai']; ?></h6></td>
                                             <td><h6><?= $data['kd_user']; ?></h6></td>
-                                            <td><h6><?= $data['no_pasien']; ?></h6></td>
+                                            <td><h6><?= $data['nm_pasien']; ?></h6></td>
                                             <td><h6><?= $data['diagnosa']; ?></h6></td>
                                             <td><h6><?= $data['resep']; ?></h6></td>
                                             <td><h6><?= $data['keluhan']; ?></h6></td>
                                             <td><h6><?= $data['tgl_pemeriksaan']; ?></h6></td>
                                             <td><h6><?= $data['ket']; ?></h6></td>
                                             <td class="text-start">
-                                                <a href="editPasien.php?id=<?= $data['no_rm']; ?>" class="btn btn-sm btn-warning">Edit</a>
+                                                <a href="EditRK.php?id=<?= $data['no_rm']; ?>" class="btn btn-sm btn-warning">Edit</a>
                                                 <a href="hapusRekamMedis.php?id=<?= $data['no_rm']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
                                                 <a href="cetakRekamMedis.php?id=<?= $data['no_rm']; ?>" class="btn btn-sm btn-info" target="_blank">Cetak</a>                                                
                                             </td>
