@@ -38,12 +38,12 @@ if (isset($_POST['update'])) {
 
     mysqli_query($connection, "
         UPDATE obat 
-        SET jumlah_obat = jumlah_obat + $jumlah_pakai_lama 
+        SET jml_obat = jml_obat + $jumlah_pakai_lama 
         WHERE kd_obat = '$kd_obat_lama'
     ");
 
-    $cek_stok = mysqli_query($connection, "SELECT jumlah_obat FROM obat WHERE kd_obat = '$kd_obat_baru'");
-    $stok = mysqli_fetch_assoc($cek_stok)['jumlah_obat'];
+    $cek_stok = mysqli_query($connection, "SELECT jml_obat FROM obat WHERE kd_obat = '$kd_obat_baru'");
+    $stok = mysqli_fetch_assoc($cek_stok)['jml_obat'];
 
     if ($stok < $jumlah_pakai_baru) {
         echo "Stok obat tidak mencukupi!";
@@ -52,7 +52,7 @@ if (isset($_POST['update'])) {
 
     mysqli_query($connection, "
         UPDATE obat 
-        SET jumlah_obat = jumlah_obat - $jumlah_pakai_baru 
+        SET jml_obat = jml_obat - $jumlah_pakai_baru 
         WHERE kd_obat = '$kd_obat_baru'
     ");
 
@@ -87,10 +87,10 @@ if (isset($_POST['update'])) {
                   <div class="card-body">
                     <h4 class="card-title">Input Rekam Medis</h4>
                     <p class="card-description"> Silahkan Input Rekam Medis </p>
-                    <form action="simpanRK.php" method="POST" class="forms-sample">
+                    <form action="" method="POST" class="forms-sample">
                       <div class="form-group">
-                        <label for="no_tindakan">Pilih Tindakan</label>
-                        <select class="form-select" name="no_tindakan" required>
+                        <label for="kd_tindakan">Pilih Tindakan</label>
+                        <select class="form-select" name="kd_tindakan" required>
                             <option value="">--Pilih Tindakan--</option>
                             <?php while ($row = mysqli_fetch_assoc($tindakan)) { ?>
                             <option value="<?= $row['kd_tindakan'] ?>" <?= $row['kd_tindakan'] == $data['kd_tindakan'] ? 'selected' : '' ?>>

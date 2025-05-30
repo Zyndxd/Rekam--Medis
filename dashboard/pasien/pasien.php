@@ -1,3 +1,5 @@
+<?php include('../template/header.php'); ?>
+<?php include('../template/sidebar.php'); ?>           
            <div class="content-wrapper">
             <div class="row">
               <div class="col-sm-12">
@@ -78,5 +80,5 @@
           </div>
           <!-- content-wrapper ends -->
 
-
+<?php include('../template/footer.php'); ?>
           

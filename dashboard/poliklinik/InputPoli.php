@@ -1,3 +1,15 @@
+<?php
+session_start();
+ini_set('display_errors', 0);
+error_reporting(0);
+include('../../Vesperr/koneksi/koneksi.php');
+
+if (!isset($_SESSION['admin_akses']) || !in_array("pasien", $_SESSION['admin_akses'])) {
+  header("Location: ../template/404.php");
+  exit();
+}
+?>
+
 <?php include('../template/header.php'); ?>
 <?php include('../template/sidebar.php'); ?>
 <div class="content-wrapper">

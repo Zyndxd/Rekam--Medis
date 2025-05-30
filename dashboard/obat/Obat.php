@@ -21,7 +21,9 @@
                                         <th class="text-center">Jumlah Obat</th>
                                         <th class="text-center">Ukuran</th>
                                         <th class="text-center">Harga</th>
+                                        <?php if (in_array("pasien", $_SESSION['admin_akses'])) { ?> 
                                         <th>Aksi</th>
+                                        <?php } ?>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -43,10 +45,12 @@
                                             <td><h6><?= $data['jml_obat']; ?></h6></td>
                                             <td><h6><?= $data['ukuran']; ?></h6></td>
                                             <td><h6><?= $data['harga']; ?></h6></td>
+                                            <?php if (in_array("pasien", $_SESSION['admin_akses'])) { ?> 
                                             <td class="text-start">
                                                 <a href="EditObat.php?id=<?= $data['kd_obat']; ?>" class="btn btn-sm btn-warning">Edit</a>
                                                 <a href="Hapusobat.php?id=<?= $data['kd_obat']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
                                                 </td>
+                                                <?php } ?>
                                         </tr>
                                         <?php } ?>
                                       </tbody>

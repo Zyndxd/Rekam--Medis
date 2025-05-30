@@ -1,6 +1,12 @@
  <!-- partial:partials/_sidebar.html -->
  <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
+          <li class="nav-item">
+              <a class="nav-link" href="../template/index.php">
+                <i class="mdi mdi-grid-large menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
+              </a>
+            </li>
             <li class="nav-item nav-category">Pasien</li>
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
@@ -10,7 +16,7 @@
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="../template/index.php">Data Pasien</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../pasien/pasien.php">Data Pasien</a></li>
                   <li class="nav-item"> <a class="nav-link" href="../pasien/inputPasien.php">Input Pasien</a></li>
                 </ul>
               </div>
@@ -104,7 +110,9 @@
               <div class="collapse" id="Obat">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="../Obat/Obat.php">Data Obat</a></li>
+<?php if (in_array("pasien", $_SESSION['admin_akses'])) { ?> 
                   <li class="nav-item"> <a class="nav-link" href="../Obat/InputObat.php">Input Obat</a></li>
+<?php } ?>
                 </ul>
               </div>
             </li>
